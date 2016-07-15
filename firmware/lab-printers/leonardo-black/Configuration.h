@@ -65,7 +65,7 @@
 #define DRIVE_SYSTEM 0
 #define XAXIS_STEPS_PER_MM 160       //OK
 #define YAXIS_STEPS_PER_MM 160       //OK
-#define ZAXIS_STEPS_PER_MM 5120      //NEEDS
+#define ZAXIS_STEPS_PER_MM 5120      //OK
 #define EXTRUDER_FAN_COOL_TEMP 50
 #define PDM_FOR_EXTRUDER 0
 #define PDM_FOR_COOLER 0
@@ -280,7 +280,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
-#define X_MAX_LENGTH 530 //OK
+#define X_MAX_LENGTH 530  //OK
 #define Y_MAX_LENGTH 350  //OK
 #define Z_MAX_LENGTH 300  //OK
 #define X_MIN_POS 0
