@@ -63,9 +63,9 @@
 #define MIXING_EXTRUDER 0
 
 #define DRIVE_SYSTEM 0
-#define XAXIS_STEPS_PER_MM 80
-#define YAXIS_STEPS_PER_MM 80
-#define ZAXIS_STEPS_PER_MM 2560
+#define XAXIS_STEPS_PER_MM 160       //OK
+#define YAXIS_STEPS_PER_MM 160       //OK
+#define ZAXIS_STEPS_PER_MM 5120      //NEEDS
 #define EXTRUDER_FAN_COOL_TEMP 50
 #define PDM_FOR_EXTRUDER 0
 #define PDM_FOR_COOLER 0
@@ -79,7 +79,7 @@
 #define EXT0_X_OFFSET 0
 #define EXT0_Y_OFFSET 0
 #define EXT0_Z_OFFSET 0
-#define EXT0_STEPS_PER_MM 92
+#define EXT0_STEPS_PER_MM 184    //OK
 #define EXT0_TEMPSENSOR_TYPE 1
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
 #define EXT0_HEATER_PIN HEATER_0_PIN
@@ -280,9 +280,9 @@ It also can add a delay to wait for spindle to run on full speed.
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
-#define X_MAX_LENGTH 1000
-#define Y_MAX_LENGTH 750
-#define Z_MAX_LENGTH 900
+#define X_MAX_LENGTH 530 //OK
+#define Y_MAX_LENGTH 350  //OK
+#define Z_MAX_LENGTH 300  //OK
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
@@ -294,10 +294,10 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DISTORTION_START_DEGRADE 0.5
 #define DISTORTION_END_HEIGHT 1
 #define DISTORTION_EXTRAPOLATE_CORNERS 0
-#define DISTORTION_XMIN 200  // OK
-#define DISTORTION_YMIN 40   //OK
-#define DISTORTION_XMAX 710  //OK
-#define DISTORTION_YMAX 610  //OK
+#define DISTORTION_XMIN 95   //OK
+#define DISTORTION_YMIN 20   //OK
+#define DISTORTION_XMAX 355  //OK
+#define DISTORTION_YMAX 300  //OK
 
 // ##########################################################################################
 // ##                           Movement settings                                          ##
@@ -316,8 +316,8 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DELTASEGMENTS_PER_PRINTLINE 24
 #define STEPPER_INACTIVE_TIME 360L
 #define MAX_INACTIVE_TIME 0L
-#define MAX_FEEDRATE_X 200
-#define MAX_FEEDRATE_Y 200
+#define MAX_FEEDRATE_X 300
+#define MAX_FEEDRATE_Y 300
 #define MAX_FEEDRATE_Z 2
 #define HOMING_FEEDRATE_X 40
 #define HOMING_FEEDRATE_Y 40
