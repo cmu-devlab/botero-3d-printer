@@ -63,14 +63,14 @@
 #define MIXING_EXTRUDER 0
 
 #define DRIVE_SYSTEM 0
-#define XAXIS_STEPS_PER_MM 80
-#define YAXIS_STEPS_PER_MM 80
-#define ZAXIS_STEPS_PER_MM 2560
+#define XAXIS_STEPS_PER_MM 160       //OK
+#define YAXIS_STEPS_PER_MM 160       //OK
+#define ZAXIS_STEPS_PER_MM 5120      //OK
 #define EXTRUDER_FAN_COOL_TEMP 50
 #define PDM_FOR_EXTRUDER 0
 #define PDM_FOR_COOLER 0
 #define DECOUPLING_TEST_MAX_HOLD_VARIANCE 20
-#define DECOUPLING_TEST_MIN_TEMP_RISE 0.1
+#define DECOUPLING_TEST_MIN_TEMP_RISE 1
 #define KILL_IF_SENSOR_DEFECT 0
 #define RETRACT_ON_PAUSE 2
 #define PAUSE_START_COMMANDS ""
@@ -79,7 +79,7 @@
 #define EXT0_X_OFFSET 0
 #define EXT0_Y_OFFSET 0
 #define EXT0_Z_OFFSET 0
-#define EXT0_STEPS_PER_MM 92
+#define EXT0_STEPS_PER_MM 184    //OK
 #define EXT0_TEMPSENSOR_TYPE 1
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
 #define EXT0_HEATER_PIN HEATER_0_PIN
@@ -280,9 +280,9 @@ It also can add a delay to wait for spindle to run on full speed.
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
-#define X_MAX_LENGTH 1000
-#define Y_MAX_LENGTH 750
-#define Z_MAX_LENGTH 900
+#define X_MAX_LENGTH 530  //OK
+#define Y_MAX_LENGTH 330  //OK
+#define Z_MAX_LENGTH 300  //OK
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
@@ -294,10 +294,10 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DISTORTION_START_DEGRADE 0.5
 #define DISTORTION_END_HEIGHT 1
 #define DISTORTION_EXTRAPOLATE_CORNERS 0
-#define DISTORTION_XMIN 200  // OK
-#define DISTORTION_YMIN 40   //OK
-#define DISTORTION_XMAX 710  //OK
-#define DISTORTION_YMAX 610  //OK
+#define DISTORTION_XMIN 100   //OK
+#define DISTORTION_YMIN 20   //OK
+#define DISTORTION_XMAX 360  //OK
+#define DISTORTION_YMAX 300  //OK
 
 // ##########################################################################################
 // ##                           Movement settings                                          ##
@@ -316,8 +316,8 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DELTASEGMENTS_PER_PRINTLINE 24
 #define STEPPER_INACTIVE_TIME 360L
 #define MAX_INACTIVE_TIME 0L
-#define MAX_FEEDRATE_X 200
-#define MAX_FEEDRATE_Y 200
+#define MAX_FEEDRATE_X 300
+#define MAX_FEEDRATE_Y 300
 #define MAX_FEEDRATE_Z 2
 #define HOMING_FEEDRATE_X 40
 #define HOMING_FEEDRATE_Y 40
@@ -534,12 +534,12 @@ Values must be in range 1..255
 {
     "editMode": 2,
     "processor": 0,
-    "baudrate": 250000,
+    "baudrate": 115200,
     "bluetoothSerial": -1,
     "bluetoothBaudrate": 115200,
-    "xStepsPerMM": 80,
-    "yStepsPerMM": 80,
-    "zStepsPerMM": 2560,
+    "xStepsPerMM": 160,
+    "yStepsPerMM": 160,
+    "zStepsPerMM": 5120,
     "xInvert": "1",
     "xInvertEnable": 0,
     "eepromMode": 0,
@@ -571,7 +571,7 @@ Values must be in range 1..255
             "waitRetractTemp": 150,
             "waitRetractUnits": 0,
             "waitRetract": 0,
-            "stepsPerMM": 92,
+            "stepsPerMM": 184,
             "coolerPin": -1,
             "coolerSpeed": 255,
             "selectCommands": "",
@@ -651,9 +651,9 @@ Values must be in range 1..255
     "xMinPos": 0,
     "yMinPos": 0,
     "zMinPos": 0,
-    "xLength": 535,
-    "yLength": 595,
-    "zLength": 310,
+    "xLength": 530,
+    "yLength": 330,
+    "zLength": 300,
     "alwaysCheckEndstops": "1",
     "disableX": "0",
     "disableY": "0",
@@ -909,10 +909,10 @@ Values must be in range 1..255
     "distortionStartDegrade": 0.5,
     "distortionEndDegrade": 1,
     "distortionExtrapolateCorners": "0",
-    "distortionXMin": 10,
-    "distortionXMax": 190,
-    "distortionYMin": 10,
-    "distortionYMax": 190,
+    "distortionXMin": 100,
+    "distortionXMax": 360,
+    "distortionYMin": 20,
+    "distortionYMax": 300,
     "sdRunOnStop": "",
     "sdStopHeaterMotorsOnStop": "1",
     "featureRetraction": "1",
@@ -1024,17 +1024,17 @@ Values must be in range 1..255
     "zProbeZOffset": 0,
     "uiBedCoating": "1",
     "langEN": "1",
-    "langDE": "1",
-    "langNL": "1",
-    "langPT": "1",
-    "langIT": "1",
-    "langES": "1",
-    "langFI": "1",
-    "langSE": "1",
-    "langFR": "1",
-    "langCZ": "1",
-    "langPL": "1",
-    "langTR": "1",
+    "langDE": "0",
+    "langNL": "0",
+    "langPT": "0",
+    "langIT": "0",
+    "langES": "0",
+    "langFI": "0",
+    "langSE": "0",
+    "langFR": "0",
+    "langCZ": "0",
+    "langPL": "0",
+    "langTR": "0",
     "interpolateAccelerationWithZ": 0,
     "accelerationFactorTop": 100,
     "bendingCorrectionA": 0,
