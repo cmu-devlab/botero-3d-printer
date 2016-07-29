@@ -79,7 +79,7 @@
 #define EXT0_X_OFFSET 0
 #define EXT0_Y_OFFSET 0
 #define EXT0_Z_OFFSET 0
-#define EXT0_STEPS_PER_MM 184    //OK
+#define EXT0_STEPS_PER_MM 226    //OK
 #define EXT0_TEMPSENSOR_TYPE 1
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
 #define EXT0_HEATER_PIN HEATER_0_PIN
@@ -294,9 +294,9 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DISTORTION_START_DEGRADE 0.5
 #define DISTORTION_END_HEIGHT 1
 #define DISTORTION_EXTRAPOLATE_CORNERS 0
-#define DISTORTION_XMIN 125   //OK
+#define DISTORTION_XMIN 100   //OK
 #define DISTORTION_YMIN 10   //OK
-#define DISTORTION_XMAX 385  //OK
+#define DISTORTION_XMAX 360  //OK
 #define DISTORTION_YMAX 290  //OK
 
 // ##########################################################################################
@@ -571,7 +571,7 @@ Values must be in range 1..255
             "waitRetractTemp": 150,
             "waitRetractUnits": 0,
             "waitRetract": 0,
-            "stepsPerMM": 184,
+            "stepsPerMM": 226,
             "coolerPin": -1,
             "coolerSpeed": 255,
             "selectCommands": "",
@@ -909,8 +909,8 @@ Values must be in range 1..255
     "distortionStartDegrade": 0.5,
     "distortionEndDegrade": 1,
     "distortionExtrapolateCorners": "0",
-    "distortionXMin": 125,
-    "distortionXMax": 385,
+    "distortionXMin": 100,
+    "distortionXMax": 360,
     "distortionYMin": 10,
     "distortionYMax": 290,
     "sdRunOnStop": "",
