@@ -1,7 +1,17 @@
+X/Y refer to the
+
+
+Distortion refers to the region in which the extruder is allowed to move during the printing process
+
 BED_LEFT = DISTORTION_XMIN
 BED_WIDTH = DISTORTION_XMAX - DISTORTION_XMIN 
 
 BED_FRONT = DISTORTION_YMIN
 BED_DEPTH = DISTORTION_YMAX - DISTORTION_YMIN 
 
+112 0921
 
+
+IF you want to use 2 heaters (Heat 2 on board / dual extruders) you must disable the fan driving in the firmware.
+Namely set `FEATURE_FAN_CONTROL` to 0. 
+#define FEATURE_FAN_CONTROL 0
