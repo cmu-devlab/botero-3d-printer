@@ -65,7 +65,7 @@
 #define DRIVE_SYSTEM 0
 #define XAXIS_STEPS_PER_MM 160       //OK
 #define YAXIS_STEPS_PER_MM 160       //OK
-#define ZAXIS_STEPS_PER_MM 5120      //OK
+#define ZAXIS_STEPS_PER_MM 820      //OK   5120 For bad rods // 820 for ACME rods
 #define EXTRUDER_FAN_COOL_TEMP 50
 #define PDM_FOR_EXTRUDER 0
 #define PDM_FOR_COOLER 0
