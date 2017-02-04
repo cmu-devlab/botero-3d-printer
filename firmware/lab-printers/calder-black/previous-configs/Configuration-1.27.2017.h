@@ -63,9 +63,9 @@
 #define MIXING_EXTRUDER 0
 
 #define DRIVE_SYSTEM 0
-#define XAXIS_STEPS_PER_MM 160
-#define YAXIS_STEPS_PER_MM 160
-#define ZAXIS_STEPS_PER_MM 5120
+#define XAXIS_STEPS_PER_MM 160       //OK
+#define YAXIS_STEPS_PER_MM 160       //OK
+#define ZAXIS_STEPS_PER_MM 820      //OK   5120 For bad rods // 820 for ACME rods
 #define EXTRUDER_FAN_COOL_TEMP 50
 #define PDM_FOR_EXTRUDER 0
 #define PDM_FOR_COOLER 0
@@ -79,7 +79,7 @@
 #define EXT0_X_OFFSET 0
 #define EXT0_Y_OFFSET 0
 #define EXT0_Z_OFFSET 0
-#define EXT0_STEPS_PER_MM 184
+#define EXT0_STEPS_PER_MM 226    //OK
 #define EXT0_TEMPSENSOR_TYPE 1
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
 #define EXT0_HEATER_PIN HEATER_0_PIN
@@ -116,46 +116,6 @@
 #define EXT0_DECOUPLE_TEST_PERIOD 12000
 #define EXT0_JAM_PIN -1
 #define EXT0_JAM_PULLUP 0
-#define EXT1_X_OFFSET 0
-#define EXT1_Y_OFFSET 0
-#define EXT1_Z_OFFSET 0
-#define EXT1_STEPS_PER_MM 184
-#define EXT1_TEMPSENSOR_TYPE 1
-#define EXT1_TEMPSENSOR_PIN TEMP_2_PIN
-#define EXT1_HEATER_PIN HEATER_2_PIN
-#define EXT1_STEP_PIN ORIG_E1_STEP_PIN
-#define EXT1_DIR_PIN ORIG_E1_DIR_PIN
-#define EXT1_INVERSE 0
-#define EXT1_ENABLE_PIN ORIG_E1_ENABLE_PIN
-#define EXT1_ENABLE_ON 0
-#define EXT1_MIRROR_STEPPER 0
-#define EXT1_STEP2_PIN ORIG_E1_STEP_PIN
-#define EXT1_DIR2_PIN ORIG_E1_DIR_PIN
-#define EXT1_INVERSE2 0
-#define EXT1_ENABLE2_PIN ORIG_E1_ENABLE_PIN
-#define EXT1_MAX_FEEDRATE 50
-#define EXT1_MAX_START_FEEDRATE 20
-#define EXT1_MAX_ACCELERATION 5000
-#define EXT1_HEAT_MANAGER 3
-#define EXT1_WATCHPERIOD 1
-#define EXT1_PID_INTEGRAL_DRIVE_MAX 230
-#define EXT1_PID_INTEGRAL_DRIVE_MIN 40
-#define EXT1_PID_PGAIN_OR_DEAD_TIME 7
-#define EXT1_PID_I 2
-#define EXT1_PID_D 40
-#define EXT1_PID_MAX 255
-#define EXT1_ADVANCE_K 0
-#define EXT1_ADVANCE_L 0
-#define EXT1_ADVANCE_BACKLASH_STEPS 0
-#define EXT1_WAIT_RETRACT_TEMP 150
-#define EXT1_WAIT_RETRACT_UNITS 0
-#define EXT1_SELECT_COMMANDS ""
-#define EXT1_DESELECT_COMMANDS ""
-#define EXT1_EXTRUDER_COOLER_PIN -1
-#define EXT1_EXTRUDER_COOLER_SPEED 255
-#define EXT1_DECOUPLE_TEST_PERIOD 50000
-#define EXT1_JAM_PIN -1
-#define EXT1_JAM_PULLUP 0
 
 #define FEATURE_RETRACTION 1
 #define AUTORETRACT_ENABLED 0
@@ -320,9 +280,9 @@ It also can add a delay to wait for spindle to run on full speed.
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
-#define X_MAX_LENGTH 530
-#define Y_MAX_LENGTH 340
-#define Z_MAX_LENGTH 300
+#define X_MAX_LENGTH 530  //OK
+#define Y_MAX_LENGTH 330  //OK
+#define Z_MAX_LENGTH 300  //OK
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
@@ -334,10 +294,10 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DISTORTION_START_DEGRADE 0.5
 #define DISTORTION_END_HEIGHT 1
 #define DISTORTION_EXTRAPOLATE_CORNERS 0
-#define DISTORTION_XMIN 95
-#define DISTORTION_YMIN 20
-#define DISTORTION_XMAX 355
-#define DISTORTION_YMAX 300
+#define DISTORTION_XMIN 100   //OK
+#define DISTORTION_YMIN 10   //OK
+#define DISTORTION_XMAX 360  //OK
+#define DISTORTION_YMAX 290  //OK
 
 // ##########################################################################################
 // ##                           Movement settings                                          ##
@@ -356,8 +316,8 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DELTASEGMENTS_PER_PRINTLINE 24
 #define STEPPER_INACTIVE_TIME 360L
 #define MAX_INACTIVE_TIME 0L
-#define MAX_FEEDRATE_X 200
-#define MAX_FEEDRATE_Y 200
+#define MAX_FEEDRATE_X 300
+#define MAX_FEEDRATE_Y 300
 #define MAX_FEEDRATE_Z 2
 #define HOMING_FEEDRATE_X 40
 #define HOMING_FEEDRATE_Y 40
@@ -416,7 +376,7 @@ It also can add a delay to wait for spindle to run on full speed.
 
 // ################# Misc. settings ##################
 
-#define BAUDRATE 115200
+#define BAUDRATE 115200 // 250000
 #define ENABLE_POWER_ON_STARTUP 1
 #define POWER_INVERTING 0
 #define KILL_METHOD 1
@@ -507,7 +467,7 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define ARC_SUPPORT 1
 #define FEATURE_MEMORY_POSITION 1
 #define FEATURE_CHECKSUM_FORCED 0
-#define FEATURE_FAN_CONTROL 0
+#define FEATURE_FAN_CONTROL 1
 #define FEATURE_FAN2_CONTROL 0
 #define FEATURE_CONTROLLER 0
 #define ADC_KEYPAD_PIN -1
@@ -579,7 +539,7 @@ Values must be in range 1..255
     "bluetoothBaudrate": 115200,
     "xStepsPerMM": 160,
     "yStepsPerMM": 160,
-    "zStepsPerMM": 5120,
+    "zStepsPerMM": 820,
     "xInvert": "1",
     "xInvertEnable": 0,
     "eepromMode": 0,
@@ -611,7 +571,7 @@ Values must be in range 1..255
             "waitRetractTemp": 150,
             "waitRetractUnits": 0,
             "waitRetract": 0,
-            "stepsPerMM": 184,
+            "stepsPerMM": 226,
             "coolerPin": -1,
             "coolerSpeed": 255,
             "selectCommands": "",
@@ -639,59 +599,6 @@ Values must be in range 1..255
                 "step": "ORIG_E0_STEP_PIN",
                 "dir": "ORIG_E0_DIR_PIN",
                 "enable": "ORIG_E0_ENABLE_PIN"
-            }
-        },
-        {
-            "id": 1,
-            "heatManager": 3,
-            "pidDriveMin": 40,
-            "pidDriveMax": 230,
-            "pidMax": 255,
-            "sensorType": 1,
-            "sensorPin": "TEMP_2_PIN",
-            "heaterPin": "HEATER_2_PIN",
-            "maxFeedrate": 50,
-            "startFeedrate": 20,
-            "invert": "0",
-            "invertEnable": "0",
-            "acceleration": 5000,
-            "watchPeriod": 1,
-            "pidP": 7,
-            "pidI": 2,
-            "pidD": 40,
-            "advanceK": 0,
-            "advanceL": 0,
-            "waitRetractTemp": 150,
-            "waitRetractUnits": 0,
-            "waitRetract": 0,
-            "stepsPerMM": 184,
-            "coolerPin": -1,
-            "coolerSpeed": 255,
-            "selectCommands": "",
-            "deselectCommands": "",
-            "xOffset": 0,
-            "yOffset": 0,
-            "zOffset": 0,
-            "xOffsetSteps": 0,
-            "yOffsetSteps": 0,
-            "zOffsetSteps": 0,
-            "stepper": {
-                "name": "Extruder 1",
-                "step": "ORIG_E1_STEP_PIN",
-                "dir": "ORIG_E1_DIR_PIN",
-                "enable": "ORIG_E1_ENABLE_PIN"
-            },
-            "advanceBacklashSteps": 0,
-            "decoupleTestPeriod": 12,
-            "jamPin": -1,
-            "jamPullup": "0",
-            "mirror": "0",
-            "invert2": "0",
-            "stepper2": {
-                "name": "Extruder 1",
-                "step": "ORIG_E1_STEP_PIN",
-                "dir": "ORIG_E1_DIR_PIN",
-                "enable": "ORIG_E1_ENABLE_PIN"
             }
         }
     ],
@@ -745,7 +652,7 @@ Values must be in range 1..255
     "yMinPos": 0,
     "zMinPos": 0,
     "xLength": 530,
-    "yLength": 340,
+    "yLength": 330,
     "zLength": 300,
     "alwaysCheckEndstops": "1",
     "disableX": "0",
@@ -927,7 +834,7 @@ Values must be in range 1..255
     "featureMemoryPositionWatchdog": "1",
     "forceChecksum": "0",
     "sdExtendedDir": "1",
-    "featureFanControl": "0",
+    "featureFanControl": "1",
     "fanPin": "ORIG_FAN_PIN",
     "featureFan2Control": "0",
     "fan2Pin": "ORIG_FAN2_PIN",
@@ -1002,10 +909,10 @@ Values must be in range 1..255
     "distortionStartDegrade": 0.5,
     "distortionEndDegrade": 1,
     "distortionExtrapolateCorners": "0",
-    "distortionXMin": 95,
-    "distortionXMax": 355,
-    "distortionYMin": 20,
-    "distortionYMax": 300,
+    "distortionXMin": 100,
+    "distortionXMax": 360,
+    "distortionYMin": 10,
+    "distortionYMax": 290,
     "sdRunOnStop": "",
     "sdStopHeaterMotorsOnStop": "1",
     "featureRetraction": "1",
@@ -1173,7 +1080,7 @@ Values must be in range 1..255
     "hasUser0": false,
     "hasUser1": false,
     "hasUser2": false,
-    "numExtruder": 2,
+    "numExtruder": 1,
     "version": 92.9,
     "primaryPortName": ""
 }

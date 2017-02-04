@@ -36,15 +36,13 @@
 
 */
 
-#define NUM_EXTRUDER 2
+#define NUM_EXTRUDER 1
 #define MOTHERBOARD 33
 #include "pins.h"
 
 // ################## EDIT THESE SETTINGS MANUALLY ################
 // ################ END MANUAL SETTINGS ##########################
 
-#undef FAN_PIN
-#define FAN_PIN -1
 #undef FAN_BOARD_PIN
 #define FAN_BOARD_PIN -1
 #define BOARD_FAN_SPEED 255
@@ -67,7 +65,7 @@
 #define DRIVE_SYSTEM 0
 #define XAXIS_STEPS_PER_MM 160
 #define YAXIS_STEPS_PER_MM 160
-#define ZAXIS_STEPS_PER_MM 820
+#define ZAXIS_STEPS_PER_MM 5120
 #define EXTRUDER_FAN_COOL_TEMP 50
 #define PDM_FOR_EXTRUDER 0
 #define PDM_FOR_COOLER 0
@@ -81,7 +79,7 @@
 #define EXT0_X_OFFSET 0
 #define EXT0_Y_OFFSET 0
 #define EXT0_Z_OFFSET 0
-#define EXT0_STEPS_PER_MM 226
+#define EXT0_STEPS_PER_MM 184
 #define EXT0_TEMPSENSOR_TYPE 1
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
 #define EXT0_HEATER_PIN HEATER_0_PIN
@@ -118,16 +116,16 @@
 #define EXT0_DECOUPLE_TEST_PERIOD 12000
 #define EXT0_JAM_PIN -1
 #define EXT0_JAM_PULLUP 0
-#define EXT1_X_OFFSET -12800 //80mm
+#define EXT1_X_OFFSET 0
 #define EXT1_Y_OFFSET 0
 #define EXT1_Z_OFFSET 0
-#define EXT1_STEPS_PER_MM 220
+#define EXT1_STEPS_PER_MM 184
 #define EXT1_TEMPSENSOR_TYPE 1
 #define EXT1_TEMPSENSOR_PIN TEMP_2_PIN
-#define EXT1_HEATER_PIN HEATER_1_PIN
+#define EXT1_HEATER_PIN HEATER_2_PIN
 #define EXT1_STEP_PIN ORIG_E1_STEP_PIN
 #define EXT1_DIR_PIN ORIG_E1_DIR_PIN
-#define EXT1_INVERSE 1
+#define EXT1_INVERSE 0
 #define EXT1_ENABLE_PIN ORIG_E1_ENABLE_PIN
 #define EXT1_ENABLE_ON 0
 #define EXT1_MIRROR_STEPPER 0
@@ -155,7 +153,7 @@
 #define EXT1_DESELECT_COMMANDS ""
 #define EXT1_EXTRUDER_COOLER_PIN -1
 #define EXT1_EXTRUDER_COOLER_SPEED 255
-#define EXT1_DECOUPLE_TEST_PERIOD 12000
+#define EXT1_DECOUPLE_TEST_PERIOD 50000
 #define EXT1_JAM_PIN -1
 #define EXT1_JAM_PULLUP 0
 
@@ -323,7 +321,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
 #define X_MAX_LENGTH 530
-#define Y_MAX_LENGTH 330
+#define Y_MAX_LENGTH 340
 #define Z_MAX_LENGTH 300
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
@@ -336,10 +334,10 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DISTORTION_START_DEGRADE 0.5
 #define DISTORTION_END_HEIGHT 1
 #define DISTORTION_EXTRAPOLATE_CORNERS 0
-#define DISTORTION_XMIN 100
-#define DISTORTION_YMIN 10
-#define DISTORTION_XMAX 360
-#define DISTORTION_YMAX 290
+#define DISTORTION_XMIN 95
+#define DISTORTION_YMIN 20
+#define DISTORTION_XMAX 355
+#define DISTORTION_YMAX 300
 
 // ##########################################################################################
 // ##                           Movement settings                                          ##
@@ -581,7 +579,7 @@ Values must be in range 1..255
     "bluetoothBaudrate": 115200,
     "xStepsPerMM": 160,
     "yStepsPerMM": 160,
-    "zStepsPerMM": 820,
+    "zStepsPerMM": 5120,
     "xInvert": "1",
     "xInvertEnable": 0,
     "eepromMode": 0,
@@ -613,7 +611,7 @@ Values must be in range 1..255
             "waitRetractTemp": 150,
             "waitRetractUnits": 0,
             "waitRetract": 0,
-            "stepsPerMM": 226,
+            "stepsPerMM": 184,
             "coolerPin": -1,
             "coolerSpeed": 255,
             "selectCommands": "",
@@ -651,10 +649,10 @@ Values must be in range 1..255
             "pidMax": 255,
             "sensorType": 1,
             "sensorPin": "TEMP_2_PIN",
-            "heaterPin": "HEATER_1_PIN",
+            "heaterPin": "HEATER_2_PIN",
             "maxFeedrate": 50,
             "startFeedrate": 20,
-            "invert": "1",
+            "invert": "0",
             "invertEnable": "0",
             "acceleration": 5000,
             "watchPeriod": 1,
@@ -666,15 +664,15 @@ Values must be in range 1..255
             "waitRetractTemp": 150,
             "waitRetractUnits": 0,
             "waitRetract": 0,
-            "stepsPerMM": 220,
+            "stepsPerMM": 184,
             "coolerPin": -1,
             "coolerSpeed": 255,
             "selectCommands": "",
             "deselectCommands": "",
-            "xOffset": -80,
+            "xOffset": 0,
             "yOffset": 0,
             "zOffset": 0,
-            "xOffsetSteps": -12800,
+            "xOffsetSteps": 0,
             "yOffsetSteps": 0,
             "zOffsetSteps": 0,
             "stepper": {
@@ -747,7 +745,7 @@ Values must be in range 1..255
     "yMinPos": 0,
     "zMinPos": 0,
     "xLength": 530,
-    "yLength": 330,
+    "yLength": 340,
     "zLength": 300,
     "alwaysCheckEndstops": "1",
     "disableX": "0",
@@ -930,7 +928,7 @@ Values must be in range 1..255
     "forceChecksum": "0",
     "sdExtendedDir": "1",
     "featureFanControl": "0",
-    "fanPin": "-1",
+    "fanPin": "ORIG_FAN_PIN",
     "featureFan2Control": "0",
     "fan2Pin": "ORIG_FAN2_PIN",
     "fanThermoPin": -1,
@@ -1004,10 +1002,10 @@ Values must be in range 1..255
     "distortionStartDegrade": 0.5,
     "distortionEndDegrade": 1,
     "distortionExtrapolateCorners": "0",
-    "distortionXMin": 100,
-    "distortionXMax": 360,
-    "distortionYMin": 10,
-    "distortionYMax": 290,
+    "distortionXMin": 95,
+    "distortionXMax": 355,
+    "distortionYMin": 20,
+    "distortionYMax": 300,
     "sdRunOnStop": "",
     "sdStopHeaterMotorsOnStop": "1",
     "featureRetraction": "1",

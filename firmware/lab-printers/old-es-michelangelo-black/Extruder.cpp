@@ -77,6 +77,7 @@ void Extruder::manageTemperatures()
         TemperatureController *act = tempController[controller];
         // Get Temperature
         act->updateCurrentTemperature();
+        Com::printFLN(PSTR("Disabling all heaters due to detected sensor defect."));
 #if FAN_THERMO_PIN > -1
 		// Special case thermistor controlled fan
         if(act == &thermoController) {
