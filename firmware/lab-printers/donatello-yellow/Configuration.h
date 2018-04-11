@@ -275,17 +275,19 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DISABLE_Z 0
 #define DISABLE_E 0
 #define INVERT_X_DIR 1
-#define INVERT_Y_DIR 0
+#define INVERT_Y_DIR 1
 #define INVERT_Z_DIR 1
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
 #define X_MAX_LENGTH 530  //OK
-#define Y_MAX_LENGTH 330  //OK
+#define Y_MAX_LENGTH 160  //OK
 #define Z_MAX_LENGTH 300  //OK
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
+#define PRINTER_BED_WIDTH 190
+#define PRINTER_BED_DEPTH 160
 #define DISTORTION_CORRECTION 0
 #define DISTORTION_CORRECTION_POINTS 5
 #define DISTORTION_CORRECTION_R 100
@@ -294,10 +296,10 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DISTORTION_START_DEGRADE 0.5
 #define DISTORTION_END_HEIGHT 1
 #define DISTORTION_EXTRAPOLATE_CORNERS 0
-#define DISTORTION_XMIN 125   //OK
-#define DISTORTION_YMIN 10   //OK
-#define DISTORTION_XMAX 385  //OK
-#define DISTORTION_YMAX 290  //OK
+#define DISTORTION_XMIN 160   //OK
+#define DISTORTION_YMIN 0   //OK
+#define DISTORTION_XMAX DISTORTION_XMIN + PRINTER_BED_WIDTH 
+#define DISTORTION_YMAX DISTORTION_YMIN + PRINTER_BED_DEPTH
 
 // ##########################################################################################
 // ##                           Movement settings                                          ##
@@ -469,7 +471,7 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define FEATURE_CHECKSUM_FORCED 0
 #define FEATURE_FAN_CONTROL 1
 #define FEATURE_FAN2_CONTROL 0
-#define FEATURE_CONTROLLER 0
+#define FEATURE_CONTROLLER CONTROLLER_SMARTRAMPS
 #define ADC_KEYPAD_PIN -1
 #define LANGUAGE_EN_ACTIVE 1
 #define LANGUAGE_DE_ACTIVE 0
@@ -483,8 +485,8 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define LANGUAGE_CZ_ACTIVE 0
 #define LANGUAGE_PL_ACTIVE 0
 #define LANGUAGE_TR_ACTIVE 0
-#define UI_PRINTER_NAME "RepRap"
-#define UI_PRINTER_COMPANY "Home made"
+#define UI_PRINTER_NAME "Donatello"
+#define UI_PRINTER_COMPANY "DevLab"
 #define UI_PAGES_DURATION 4000
 #define UI_ANIMATION 1
 #define UI_SPEEDDEPENDENT_POSITIONING 0
@@ -500,7 +502,7 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define FEATURE_BEEPER 0
 #define CASE_LIGHTS_PIN -1
 #define CASE_LIGHT_DEFAULT_ON 1
-#define UI_START_SCREEN_DELAY 1000
+#define UI_START_SCREEN_DELAY 100
 #define UI_DYNAMIC_ENCODER_SPEED 1
         /**
 Beeper sound definitions for short beeps during key actions
