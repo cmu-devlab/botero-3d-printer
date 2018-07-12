@@ -65,7 +65,7 @@
 #define DRIVE_SYSTEM 0
 #define XAXIS_STEPS_PER_MM 160       //OK
 #define YAXIS_STEPS_PER_MM 160       //OK
-#define ZAXIS_STEPS_PER_MM 5120      //OK
+#define ZAXIS_STEPS_PER_MM 824      //OK
 #define EXTRUDER_FAN_COOL_TEMP 50
 #define PDM_FOR_EXTRUDER 0
 #define PDM_FOR_COOLER 0
@@ -228,42 +228,41 @@ It also can add a delay to wait for spindle to run on full speed.
 
 // ################ Endstop configuration #####################
 
+// ################ Endstop configuration #####################
+
 #define ENDSTOP_PULLUP_X_MIN true
 #define ENDSTOP_X_MIN_INVERTING false
 #define MIN_HARDWARE_ENDSTOP_X true
+
 #define ENDSTOP_PULLUP_Y_MIN true
-#define ENDSTOP_Y_MIN_INVERTING false
+#define ENDSTOP_Y_MIN_INVERTING true
 #define MIN_HARDWARE_ENDSTOP_Y true
+
 #define ENDSTOP_PULLUP_Z_MIN true
-#define ENDSTOP_Z_MIN_INVERTING false
+#define ENDSTOP_Z_MIN_INVERTING true
 #define MIN_HARDWARE_ENDSTOP_Z true
+
 #define ENDSTOP_PULLUP_X_MAX true
 #define ENDSTOP_X_MAX_INVERTING false
 #define MAX_HARDWARE_ENDSTOP_X false
+
 #define ENDSTOP_PULLUP_Y_MAX true
 #define ENDSTOP_Y_MAX_INVERTING false
 #define MAX_HARDWARE_ENDSTOP_Y false
+
 #define ENDSTOP_PULLUP_Z_MAX true
 #define ENDSTOP_Z_MAX_INVERTING false
-#define MAX_HARDWARE_ENDSTOP_Z false
-#define max_software_endstop_r true
 
+#define MAX_HARDWARE_ENDSTOP_Y false
+#define MAX_HARDWARE_ENDSTOP_Z false
+
+#define max_software_endstop_r true
 #define min_software_endstop_x false
 #define min_software_endstop_y false
 #define min_software_endstop_z false
 #define max_software_endstop_x true
 #define max_software_endstop_y true
 #define max_software_endstop_z true
-#define ENDSTOP_X_BACK_MOVE 5
-#define ENDSTOP_Y_BACK_MOVE 5
-#define ENDSTOP_Z_BACK_MOVE 2
-#define ENDSTOP_X_RETEST_REDUCTION_FACTOR 3
-#define ENDSTOP_Y_RETEST_REDUCTION_FACTOR 3
-#define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 3
-#define ENDSTOP_X_BACK_ON_HOME 0
-#define ENDSTOP_Y_BACK_ON_HOME 0
-#define ENDSTOP_Z_BACK_ON_HOME 0.5
-#define ALWAYS_CHECK_ENDSTOPS 1
 
 // ################# XYZ movements ###################
 
@@ -298,7 +297,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DISTORTION_EXTRAPOLATE_CORNERS 0
 #define DISTORTION_XMIN 160   //OK
 #define DISTORTION_YMIN 0   //OK
-#define DISTORTION_XMAX DISTORTION_XMIN + PRINTER_BED_WIDTH 
+#define DISTORTION_XMAX DISTORTION_XMIN + PRINTER_BED_WIDTH
 #define DISTORTION_YMAX DISTORTION_YMIN + PRINTER_BED_DEPTH
 
 // ##########################################################################################
