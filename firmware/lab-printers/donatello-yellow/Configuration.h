@@ -36,7 +36,7 @@
 
 */
 
-#define NUM_EXTRUDER 1
+#define NUM_EXTRUDER 2
 #define MOTHERBOARD 33
 #include "pins.h"
 
@@ -65,7 +65,7 @@
 #define DRIVE_SYSTEM 0
 #define XAXIS_STEPS_PER_MM 160       //OK
 #define YAXIS_STEPS_PER_MM 160       //OK
-#define ZAXIS_STEPS_PER_MM 824      //OK
+#define ZAXIS_STEPS_PER_MM 800      //OK
 #define EXTRUDER_FAN_COOL_TEMP 50
 #define PDM_FOR_EXTRUDER 0
 #define PDM_FOR_COOLER 0
@@ -76,6 +76,9 @@
 #define PAUSE_START_COMMANDS ""
 #define PAUSE_END_COMMANDS ""
 #define SHARED_EXTRUDER_HEATER 0
+
+
+// EXTRUDER 0
 #define EXT0_X_OFFSET 0
 #define EXT0_Y_OFFSET 0
 #define EXT0_Z_OFFSET 0
@@ -117,7 +120,62 @@
 #define EXT0_JAM_PIN -1
 #define EXT0_JAM_PULLUP 0
 
-#define FEATURE_RETRACTION 1
+// EXTRUDER 2
+
+#define EXT1_STEPS_PER_MM  9255.38 // 9517.188 // assumes 16 usteps ; probably need to adjust?
+
+#define EXT1_X_OFFSET (41200 * XAXIS_STEPS_PER_MM)/1000  // better precision with integers :)
+#define EXT1_Y_OFFSET 0
+#define EXT1_Z_OFFSET 0
+
+//#define SHARED_EXTRUDER_HEATER ES_SHARED_HEATER_E1_AND_E2 // Sharing the heater with our two extruders for ES and PLA
+#define EXT1_TEMPSENSOR_TYPE 1   // 1
+#define EXT1_TEMPSENSOR_PIN  TEMP_1_PIN    // TEMP_0_PIN
+#define EXT1_HEATER_PIN HEATER_1_PIN
+
+
+#define EXT1_STEP_PIN ORIG_E1_STEP_PIN
+#define EXT1_DIR_PIN ORIG_E1_DIR_PIN
+
+#define EXT1_INVERSE 0
+#define EXT1_ENABLE_PIN ORIG_E1_ENABLE_PIN
+#define EXT1_ENABLE_ON 0
+#define EXT1_MIRROR_STEPPER 0
+#define EXT1_STEP2_PIN ORIG_E1_STEP_PIN
+#define EXT1_DIR2_PIN ORIG_E1_DIR_PIN
+#define EXT1_INVERSE2 0
+#define EXT1_ENABLE2_PIN ORIG_E1_ENABLE_PIN
+#define EXT1_MAX_FEEDRATE 50
+#define EXT1_MAX_START_FEEDRATE 20
+#define EXT1_MAX_ACCELERATION 5000
+#define EXT1_HEAT_MANAGER 3
+#define EXT1_WATCHPERIOD 1
+
+#define EXT1_PID_INTEGRAL_DRIVE_MAX 230
+#define EXT1_PID_INTEGRAL_DRIVE_MIN 40
+#define EXT1_PID_PGAIN_OR_DEAD_TIME 7
+#define EXT1_PID_I 2
+#define EXT1_PID_D 40
+#define EXT1_PID_MAX 255
+#define EXT1_ADVANCE_K 0
+#define EXT1_ADVANCE_L 0
+
+#define EXT1_ADVANCE_BACKLASH_STEPS 0
+#define EXT1_WAIT_RETRACT_TEMP 150
+#define EXT1_WAIT_RETRACT_UNITS 0
+#define EXT1_SELECT_COMMANDS ""
+#define EXT1_DESELECT_COMMANDS ""
+#define EXT1_EXTRUDER_COOLER_PIN -1
+#define EXT1_EXTRUDER_COOLER_SPEED 255
+
+#define EXT1_DECOUPLE_TEST_PERIOD EXT0_DECOUPLE_TEST_PERIOD
+
+#define EXT1_JAM_PIN -1
+#define EXT1_JAM_PULLUP 0
+
+// END EXTRUDERS
+
+#define FEATURE_RETRACTION 0
 #define AUTORETRACT_ENABLED 0
 #define RETRACTION_LENGTH 3
 #define RETRACTION_LONG_LENGTH 13
@@ -172,7 +230,7 @@
 #define HEATED_BED_PID_DGAIN 290
 #define HEATED_BED_PID_MAX 255
 #define HEATED_BED_DECOUPLE_TEST_PERIOD 300000
-#define MIN_EXTRUDER_TEMP 150
+#define MIN_EXTRUDER_TEMP 40
 #define MAXTEMP 275
 #define MIN_DEFECT_TEMPERATURE -10
 #define MAX_DEFECT_TEMPERATURE 290
@@ -182,24 +240,24 @@
 // ##########################################################################################
 
 /*
-If the firmware is in laser mode, it can control a laser output to cut or engrave materials.
-Please use this feature only if you know about safety and required protection. Lasers are
-dangerous and can hurt or make you blind!!!
+  If the firmware is in laser mode, it can control a laser output to cut or engrave materials.
+  Please use this feature only if you know about safety and required protection. Lasers are
+  dangerous and can hurt or make you blind!!!
 
-The default laser driver only supports laser on and off. Here you control the eíntensity with
-your feedrate. For exchangeable diode lasers this is normally enough. If you need more control
-you can set the intensity in a range 0-255 with a custom extension to the driver. See driver.h
-and comments on how to extend the functions non invasive with our event system.
+  The default laser driver only supports laser on and off. Here you control the eíntensity with
+  your feedrate. For exchangeable diode lasers this is normally enough. If you need more control
+  you can set the intensity in a range 0-255 with a custom extension to the driver. See driver.h
+  and comments on how to extend the functions non invasive with our event system.
 
-If you have a laser - powder system you will like your E override. If moves contain a
-increasing extruder position it will laser that move. With this trick you can
-use existing fdm slicers to laser the output. Laser width is extrusion width.
+  If you have a laser - powder system you will like your E override. If moves contain a
+  increasing extruder position it will laser that move. With this trick you can
+  use existing fdm slicers to laser the output. Laser width is extrusion width.
 
-Other tools may use M3 and M5 to enable/disable laser. Here G1/G2/G3 moves have laser enabled
-and G0 moves have it disables.
+  Other tools may use M3 and M5 to enable/disable laser. Here G1/G2/G3 moves have laser enabled
+  and G0 moves have it disables.
 
-In any case, laser only enables while moving. At the end of a move it gets
-automatically disabled.
+  In any case, laser only enables while moving. At the end of a move it gets
+  automatically disabled.
 */
 
 #define SUPPORT_LASER 0
@@ -209,10 +267,10 @@ automatically disabled.
 // ##                              CNC configuration                                       ##
 
 /*
-If the firmware is in CNC mode, it can control a mill with M3/M4/M5. It works
-similar to laser mode, but mill keeps enabled during G0 moves and it allows
-setting rpm (only with event extension that supports this) and milling direction.
-It also can add a delay to wait for spindle to run on full speed.
+  If the firmware is in CNC mode, it can control a mill with M3/M4/M5. It works
+  similar to laser mode, but mill keeps enabled during G0 moves and it allows
+  setting rpm (only with event extension that supports this) and milling direction.
+  It also can add a delay to wait for spindle to run on full speed.
 */
 
 #define SUPPORT_CNC 0
@@ -264,6 +322,19 @@ It also can add a delay to wait for spindle to run on full speed.
 #define max_software_endstop_y true
 #define max_software_endstop_z true
 
+#define ALWAYS_CHECK_ENDSTOPS 1
+
+#define ENDSTOP_X_BACK_MOVE 5
+#define ENDSTOP_Y_BACK_MOVE 5
+#define ENDSTOP_Z_BACK_MOVE 2
+#define ENDSTOP_X_RETEST_REDUCTION_FACTOR 3
+#define ENDSTOP_Y_RETEST_REDUCTION_FACTOR 3
+#define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 3
+#define ENDSTOP_X_BACK_ON_HOME 0
+#define ENDSTOP_Y_BACK_ON_HOME 0
+#define ENDSTOP_Z_BACK_ON_HOME 0.5
+#define ALWAYS_CHECK_ENDSTOPS 1
+
 // ################# XYZ movements ###################
 
 #define X_ENABLE_ON 0
@@ -281,11 +352,11 @@ It also can add a delay to wait for spindle to run on full speed.
 #define Z_HOME_DIR -1
 #define X_MAX_LENGTH 530  //OK
 #define Y_MAX_LENGTH 160  //OK
-#define Z_MAX_LENGTH 300  //OK
+#define Z_MAX_LENGTH 140  //OK
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define PRINTER_BED_WIDTH 190
+#define PRINTER_BED_WIDTH 175
 #define PRINTER_BED_DEPTH 160
 #define DISTORTION_CORRECTION 0
 #define DISTORTION_CORRECTION_POINTS 5
@@ -295,7 +366,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DISTORTION_START_DEGRADE 0.5
 #define DISTORTION_END_HEIGHT 1
 #define DISTORTION_EXTRAPOLATE_CORNERS 0
-#define DISTORTION_XMIN 160   //OK
+#define DISTORTION_XMIN 220   //OK
 #define DISTORTION_YMIN 0   //OK
 #define DISTORTION_XMAX DISTORTION_XMIN + PRINTER_BED_WIDTH
 #define DISTORTION_YMAX DISTORTION_YMIN + PRINTER_BED_DEPTH
@@ -390,10 +461,10 @@ It also can add a delay to wait for spindle to run on full speed.
 #define JSON_OUTPUT 0
 
 /* ======== Servos =======
-Control the servos with
-M340 P<servoId> S<pulseInUS>   / ServoID = 0..3  pulseInUs = 500..2500
-Servos are controlled by a pulse width normally between 500 and 2500 with 1500ms in center position. 0 turns servo off.
-WARNING: Servos can draw a considerable amount of current. Make sure your system can handle this or you may risk your hardware!
+  Control the servos with
+  M340 P<servoId> S<pulseInUS>   / ServoID = 0..3  pulseInUs = 500..2500
+  Servos are controlled by a pulse width normally between 500 and 2500 with 1500ms in center position. 0 turns servo off.
+  WARNING: Servos can draw a considerable amount of current. Make sure your system can handle this or you may risk your hardware!
 */
 #define FEATURE_SERVO 0
 #define SERVO0_PIN 11
@@ -407,7 +478,7 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define UI_SERVO_CONTROL 0
 #define FAN_KICKSTART_TIME  200
 
-        #define FEATURE_WATCHDOG 0
+#define FEATURE_WATCHDOG 0
 
 // #################### Z-Probing #####################
 
@@ -503,11 +574,11 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define CASE_LIGHT_DEFAULT_ON 1
 #define UI_START_SCREEN_DELAY 100
 #define UI_DYNAMIC_ENCODER_SPEED 1
-        /**
-Beeper sound definitions for short beeps during key actions
-and longer beeps for important actions.
-Parameter is delay in microseconds and the secons is the number of repetitions.
-Values must be in range 1..255
+/**
+  Beeper sound definitions for short beeps during key actions
+  and longer beeps for important actions.
+  Parameter is delay in microseconds and the secons is the number of repetitions.
+  Values must be in range 1..255
 */
 #define BEEPER_SHORT_SEQUENCE 2,2
 #define BEEPER_LONG_SEQUENCE 8,8
@@ -531,8 +602,8 @@ Values must be in range 1..255
 
 /* Below you will find the configuration string, that created this Configuration.h
 
-========== Start configuration string ==========
-{
+  ========== Start configuration string ==========
+  {
     "editMode": 2,
     "processor": 0,
     "baudrate": 115200,
@@ -1084,7 +1155,7 @@ Values must be in range 1..255
     "numExtruder": 1,
     "version": 92.9,
     "primaryPortName": ""
-}
-========== End configuration string ==========
+  }
+  ========== End configuration string ==========
 
 */
